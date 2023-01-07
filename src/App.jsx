@@ -1,10 +1,10 @@
 import React from "react";
-import "./App.css";
+import Header from "./components/layout/header/Header";
 
 const App = () => {
   return (
-    <div className="App">
-      <span>This is app</span>
+    <div>
+      <Header />
     </div>
   );
 };
