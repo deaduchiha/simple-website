@@ -10,6 +10,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // components
 import Loader from "../../shared/Loader";
 import { GET_POST_INFO } from "../../../graphql/queries";
+import CommentForm from "../../comment/CommentForm";
 
 const BlogPage = () => {
   const { slug } = useParams();
@@ -70,6 +71,9 @@ const BlogPage = () => {
           <div
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(content.html) }}
           ></div>
+        </Grid>
+        <Grid item xs={12}>
+          <CommentForm slug={slug} />
         </Grid>
       </Grid>
     </Container>
