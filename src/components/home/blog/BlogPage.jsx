@@ -50,7 +50,11 @@ const BlogPage = () => {
             src={coverPhoto.url}
             alt={slug}
             width="100%"
-            style={{ borderRadius: 15 }}
+            style={{
+              borderRadius: 15,
+              height: "650px",
+              objectFit: "cover",
+            }}
           />
         </Grid>
         <Grid item xs={12} mt={7} display="flex" alignItems="center" gap={2}>
