@@ -60,19 +60,14 @@ const GET_AUTHOR_INFO = gql`
 const GET_POST_INFO = gql`
   query getPost($slug: String!) {
     post(where: { slug: $slug }) {
-      author {
-        ... on Author {
-          name
-          field
-          avatar {
-            url
-          }
-          id
-          slug
-          description {
-            html
-          }
-        }
+      slug
+      title
+      id
+      content {
+        html
+      }
+      coverPhoto {
+        url
       }
     }
   }
