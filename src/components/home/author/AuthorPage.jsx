@@ -47,7 +47,7 @@ const AuthorPage = () => {
             }}
           ></div>
         </Grid>
-        <Grid item sx={12} mt={6}>
+        <Grid item xs={12} mt={6}>
           <Typography component="h3" variant="h5" fontWeight={700}>
             {`${name}'s`} Blogs:
           </Typography>

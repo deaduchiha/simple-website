@@ -13,9 +13,9 @@ const Loader = () => {
       }}
     >
       <Triangle
-        height="80"
-        width="80"
-        color="#4fa94d"
+        height="100"
+        width="100"
+        color="#111"
         ariaLabel="triangle-loading"
         wrapperStyle={{}}
         wrapperClassName=""
