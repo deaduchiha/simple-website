@@ -6,6 +6,7 @@ import sanitizeHtml from "sanitize-html";
 import { GET_AUTHOR_INFO } from "../../../graphql/queries";
 import { Avatar, Container, Grid, Typography } from "@mui/material";
 import CardEL from "../../shared/CardEL";
+import Loader from "../../shared/Loader";
 
 const AuthorPage = () => {
   const { slug } = useParams();
@@ -13,7 +14,7 @@ const AuthorPage = () => {
     variables: { slug },
   });
 
-  if (loading) return <h5>Loading...</h5>;
+  if (loading) return <Loader />;
   if (errors) return <h5>Error</h5>;
   console.log(data);
 
