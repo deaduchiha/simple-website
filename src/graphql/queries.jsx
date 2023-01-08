@@ -69,6 +69,15 @@ const GET_POST_INFO = gql`
       coverPhoto {
         url
       }
+      author {
+        ... on Author {
+          name
+          field
+          avatar {
+            url
+          }
+        }
+      }
     }
   }
 `;

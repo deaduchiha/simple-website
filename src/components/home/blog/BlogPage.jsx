@@ -1,10 +1,15 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { useNavigate, useParams } from "react-router-dom";
-import { GET_POST_INFO } from "../../../graphql/queries";
-import Loader from "../../shared/Loader";
-import { Avatar, Container, Grid, Typography } from "@mui/material";
+import { Avatar, Container, Grid, Typography, Box } from "@mui/material";
+import sanitizeHtml from "sanitize-html";
+
+// icon
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+// components
+import Loader from "../../shared/Loader";
+import { GET_POST_INFO } from "../../../graphql/queries";
 
 const BlogPage = () => {
   const { slug } = useParams();
@@ -19,7 +24,7 @@ const BlogPage = () => {
   console.log(data);
 
   const {
-    post: { title, coverPhoto },
+    post: { title, coverPhoto, author, content },
   } = data;
 
   return (
@@ -47,8 +52,24 @@ const BlogPage = () => {
             style={{ borderRadius: 15 }}
           />
         </Grid>
-        <Grid item xs={12} mt={7}>
-          <Avatar src="" />
+        <Grid item xs={12} mt={7} display="flex" alignItems="center" gap={2}>
+          <Avatar
+            src={author.avatar.url}
+            sx={{ width: "80px", height: "80px", marginLeft: 2 }}
+          />
+          <Box component="div">
+            <Typography component="p" variant="h5" fontWeight={700}>
+              {author.name}
+            </Typography>
+            <Typography component="p" variant="p" color="text.secondary">
+              {author.field}
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item>
+          <div
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(content.html) }}
+          ></div>
         </Grid>
       </Grid>
     </Container>
