@@ -41,18 +41,18 @@ const CardEL = ({ author, slug, coverPhoto, title }) => {
       </CardContent>
       <Divider variant="middle" sx={{ margin: "10px" }} />
       <CardActions>
-        {/* <Link
+        <Link
           to={`/blogs/${slug}`}
           style={{ textDecoration: "none", width: "100%" }}
-        > */}
-        <Button
-          variant="outlined"
-          size="small"
-          sx={{ width: "100%", borderRadius: 3 }}
         >
-          Read more
-        </Button>
-        {/* </Link> */}
+          <Button
+            variant="outlined"
+            size="small"
+            sx={{ width: "100%", borderRadius: 3 }}
+          >
+            Read more
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
