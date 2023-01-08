@@ -34,4 +34,27 @@ const GET_AUTHOR = gql`
   }
 `;
 
-export { GET_BLOGS_INFO, GET_AUTHOR };
+const GET_AUTHOR_INFO = gql`
+  query getAuthorInfo($slug: String!) {
+    author(where: { slug: $slug }) {
+      avatar {
+        url
+      }
+      name
+      field
+      description {
+        html
+      }
+      posts {
+        coverPhoto {
+          url
+        }
+        id
+        slug
+        title
+      }
+    }
+  }
+`;
+
+export { GET_BLOGS_INFO, GET_AUTHOR, GET_AUTHOR_INFO };

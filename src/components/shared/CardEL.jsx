@@ -15,14 +15,17 @@ import {
 const CardEL = ({ author, slug, coverPhoto, title }) => {
   return (
     <Card sx={{ borderRadius: 4 }}>
-      <CardHeader
-        avatar={<Avatar src={author.avatar.url} />}
-        title={
-          <Typography component="p" variant="p" color={"text.secondary"}>
-            {author.name}
-          </Typography>
-        }
-      />
+      {author && (
+        <CardHeader
+          avatar={<Avatar src={author.avatar.url} />}
+          title={
+            <Typography component="p" variant="p" color={"text.secondary"}>
+              {author.name}
+            </Typography>
+          }
+        />
+      )}
+
       <CardMedia
         component="img"
         height="194"
