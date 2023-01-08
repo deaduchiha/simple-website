@@ -66,7 +66,7 @@ const BlogPage = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item>
+        <Grid item mt={5}>
           <div
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(content.html) }}
           ></div>
