@@ -11,6 +11,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../../shared/Loader";
 import { GET_POST_INFO } from "../../../graphql/queries";
 import CommentForm from "../../comment/CommentForm";
+import Comment from "../../comment/Comment";
 
 const BlogPage = () => {
   const { slug } = useParams();
@@ -22,7 +23,6 @@ const BlogPage = () => {
 
   if (loading) return <Loader />;
   if (errors) return <h5>Error</h5>;
-  console.log(data);
 
   const {
     post: { title, coverPhoto, author, content },
@@ -78,6 +78,9 @@ const BlogPage = () => {
         </Grid>
         <Grid item xs={12}>
           <CommentForm slug={slug} />
+        </Grid>
+        <Grid item xs={12}>
+          <Comment slug={slug} />
         </Grid>
       </Grid>
     </Container>

@@ -9,15 +9,16 @@ const CommentForm = ({ slug }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [pressed, setPressed] = useState(false);
 
   const [sendComment, { loading, data, errors }] = useMutation(SEND_COMMENT, {
     variables: { name, email, text, slug },
   });
-  console.log(data);
 
   const sendHandler = () => {
     if (name && email && text) {
       sendComment();
+      setPressed(true);
     } else {
       toast.warn("fill the form", {
         position: "top-center",
@@ -25,10 +26,11 @@ const CommentForm = ({ slug }) => {
     }
   };
 
-  if (data) {
+  if (data && pressed) {
     toast.success("comment sent, waiting for us.", {
       position: "top-center",
     });
+    setPressed(false);
   }
   if (errors) return <h3>Error</h3>;
   return (
